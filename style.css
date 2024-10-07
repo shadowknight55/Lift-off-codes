@@ -1,0 +1,80 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Font style for the body */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+header, footer {
+    background-color: #333; /* Dark background for header and footer */
+    color: #ffffff; /* White text color */
+    text-align: center; /* Centered text */
+    padding: 10px; /* Padding around text */
+}
+
+main {
+    padding: 20px; /* Padding inside the main section */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+input[type="password"], input[type="number"], select {
+    width: 100%; /* Full width for input fields */
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Button Styles */
+button {
+    background-color: #021120; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+button:hover {
+    background-color: #04274d; /* Darker blue on hover */
+}
+
+/* Error Message Styles */
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+#error {
+    color: red; /* Red text for error messages */
+    margin-top: 10px; /* Space above error message */
+}
+
+/* Sensor Details Section Styles */
+#sensorForm {
+    margin-top: 20px; /* Space above sensor form */
+}
+
+/* Alarm Simulation Section Styles */
+#alarmSimulation {
+    margin-top: 20px; /* Space above alarm simulation section */
+    padding: 15px; /* Padding for the alarm simulation section */
+    border: 1px solid #ccc; /* Light border around the section */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for visibility */
+}
+
+/* Alarm Info Styles */
+#alarmInfo {
+    margin-top: 10px; /* Space above alarm information */
+    font-weight: bold; /* Bold text for alarm messages */
+    color: red; /* Red color for alarm messages */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 20px; /* Space above footer */
+}
