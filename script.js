@@ -21,7 +21,6 @@ document.getElementById('submitPassword').addEventListener('click', function(eve
         messageElement.textContent = "Password saved successfully!";
         document.getElementById('sensorForm').classList.remove('hidden');
         document.getElementById('passwordForm').classList.add('hidden'); // Hide the password form
-        document.getElementById('alarmSimulation').classList.remove('hidden'); // Show alarm section
     }
 });
 
@@ -60,7 +59,20 @@ function updateSensorList() {
     if (sensors.length > 0) {
         document.getElementById('sensorList').classList.remove('hidden');
         document.getElementById('simulateAlarmButton').classList.remove('hidden');
+        document.getElementById('alarmSimulation').classList.remove('hidden'); // Show the alarm section
+        updateSensorStatus(); // Update sensor status display
     }
+}
+
+// Function to update the sensor status display
+function updateSensorStatus() {
+    const sensorStatus = document.getElementById('sensorStatus');
+    sensorStatus.innerHTML = '<h3>Sensor Status</h3>'; // Heading for the status
+    sensors.forEach(sensor => {
+        const status = document.createElement('div');
+        status.textContent = `Sensor ${sensor.number}: Active`;
+        sensorStatus.appendChild(status);
+    });
 }
 
 // Function to simulate an alarm
@@ -77,18 +89,8 @@ function simulateAlarm() {
 }
 
 // Function to update flashlight position
-const flashlight = document.getElementById('flashlight');
-
 document.addEventListener('mousemove', function(e) {
-    const flashlightSize = flashlight.offsetWidth;
-
-    flashlight.style.left = `${e.pageX - flashlightSize / 2}px`;
-    flashlight.style.top = `${e.pageY - flashlightSize / 2}px`; // Remove scroll adjustment here
-});
-
-// Ensure flashlight follows the mouse when scrolling
-document.addEventListener('scroll', function() {
-    // Update flashlight position to match mouse position on scroll
-    const rect = flashlight.getBoundingClientRect();
-    flashlight.style.top = `${rect.top}px`; // Keep it at the same vertical position
+    const flashlight = document.getElementById('flashlight');
+    flashlight.style.left = `${e.pageX - flashlight.offsetWidth / 2}px`;
+    flashlight.style.top = `${e.pageY - flashlight.offsetHeight / 2}px`;
 });
