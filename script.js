@@ -27,8 +27,12 @@ document.getElementById('submitPassword').addEventListener('click', function(eve
         messageElement.style.color = "green"; // Change text color to green for success
         messageElement.textContent = "Password saved successfully!"; // Display a success message
         
-        // Show the sensor form
+        // Hide the password form
+        document.getElementById('passwordForm').classList.add('hidden');
+        
+        // Show the sensor form and alarm section
         document.getElementById('sensorForm').classList.remove('hidden');
+        document.getElementById('alarmSimulation').classList.remove('hidden'); // Show the alarm section
     }
 });
 
@@ -66,11 +70,10 @@ function updateSensorList() {
         sensorList.appendChild(li); // Append the list item to the sensor list
     });
 
-    // Show the sensor list section and the alarm simulation section if there are sensors
+    // Show the sensor list section if there are sensors
     if (sensors.length > 0) {
         document.getElementById('sensorList').classList.remove('hidden'); // Show the sensor list section
         document.getElementById('simulateAlarmButton').classList.remove('hidden'); // Show the simulate alarm button
-        document.getElementById('alarmSimulation').classList.remove('hidden'); // Show the alarm simulation section
     }
 }
 
