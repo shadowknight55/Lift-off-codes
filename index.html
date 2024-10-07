@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dynasty Defense Alarm Systems</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1>The Dynasty Defense Alarm Systems</h1>
+    </header>
+    <main>
+        <!-- Password Entry Section -->
+        <div id="passwordForm">
+            <h2>Set Your Password</h2>
+            <div class="form-group">
+                <label for="password">Enter Password (16 characters, 1 capital letter, 1 special character):</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button id="submitPassword">Submit</button>
+            <div id="message"></div> <!-- Element to display messages -->
+        </div>
+
+        <!-- Sensor Details Section -->
+        <div id="sensorForm" class="hidden">
+            <h2>Sensor Details</h2>
+            <div class="form-group">
+                <label for="sensorNumber">Sensor Number:</label>
+                <select id="sensorNumber">
+                    <option value="1">Sensor 1</option>
+                    <option value="2">Sensor 2</option>
+                    <option value="3">Sensor 3</option>
+                    <option value="4">Sensor 4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sensorType">Sensor Type:</label>
+                <select id="sensorType">
+                    <option value="fire">Fire</option>
+                    <option value="smoke">Smoke</option>
+                    <option value="heat">Heat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="delayTime">Delay Time (seconds):</label>
+                <input type="number" id="delayTime" min="0" required>
+            </div>
+            <button id="submitSensor">Submit Sensor Details</button>
+        </div>
+
+        <!-- Section to display the list of configured sensors -->
+        <div id="sensorList" class="hidden">
+            <h2>Configured Sensors</h2>
+            <ul id="sensors"></ul> <!-- Unordered list to display configured sensors -->
+        </div>
+
+        <!-- Section for simulating alarms (initially hidden) -->
+        <div id="alarmSimulation" class="hidden">
+            <h2>Alarm Simulation</h2>
+            <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button>
+            <div id="alarmInfo"></div> <!-- Div to display information about simulated alarms -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 The Dynasty Defense Alarm Systems</p>
+    </footer>
+    <script src="script.js"></script> <!-- Links to an external JavaScript file for functionality -->
+</body>
+</html>
