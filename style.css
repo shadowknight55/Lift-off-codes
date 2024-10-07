@@ -72,14 +72,18 @@ button:hover {
 
 /* Alarm Simulation Section Styles */
 #alarmSimulation {
-    margin-top: 20px;
+    position: fixed; /* Fixed positioning */
+    top: 100px; /* Adjust top position */
+    right: 20px; /* Align to the right */
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: rgba(255, 0, 0, 0.2); /* Light red for alarm */
-    width: 100%; /* Full width to fit screen */
+    width: 250px; /* Set a fixed width */
     box-sizing: border-box; /* Include padding in width */
+    z-index: 10; /* Ensure it appears above other elements */
 }
+
 
 /* Alarm Info Styles */
 #alarmInfo {
@@ -115,6 +119,18 @@ footer {
 #sensors li {
     padding: 5px;
     border-bottom: 1px solid #555; /* Darker line */
+}
+
+#flashlight {
+    position: fixed; /* Keep it fixed */
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    background: rgba(31, 31, 31, 0.5); /* More transparent */
+    pointer-events: none; 
+    transition: background 0.3s; 
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8); /* Dark background for flashlight effect */
+    z-index: 10; /* Ensure it appears above other content */
 }
 
 /* Responsive Styles */
