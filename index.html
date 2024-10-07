@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dynasty Defense Alarm Systems</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" /> <!-- Link to CSS file for styling -->
 </head>
 <body>
     <header>
-        <h1>The Dynasty Defense Alarm Systems</h1>
+        <h1>The Dynasty Defense Alarm Systems</h1> <!-- Main title of the application -->
     </header>
     <main>
         <!-- Password Entry Section -->
@@ -16,18 +16,18 @@
             <h2>Set Your Password</h2>
             <div class="form-group">
                 <label for="password">Enter Password (16 characters, 1 capital letter, 1 special character):</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" required> <!-- Input field for password -->
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" required>
+                <input type="password" id="confirmPassword" required> <!-- Input field for confirming password -->
             </div>
-            <button id="submitPassword">Submit</button>
-            <div id="message"></div> <!-- Element to display messages -->
+            <button id="submitPassword">Submit</button> <!-- Button to submit the password -->
+            <div id="message"></div> <!-- Element to display messages (success or error) -->
         </div>
 
         <!-- Sensor Details Section -->
-        <div id="sensorForm" class="hidden">
+        <div id="sensorForm" class="hidden"> <!-- Hidden by default -->
             <h2>Sensor Details</h2>
             <div class="form-group">
                 <label for="sensorNumber">Sensor Number:</label>
@@ -36,7 +36,7 @@
                     <option value="2">Sensor 2</option>
                     <option value="3">Sensor 3</option>
                     <option value="4">Sensor 4</option>
-                </select>
+                </select> <!-- Dropdown for selecting sensor number -->
             </div>
             <div class="form-group">
                 <label for="sensorType">Sensor Type:</label>
@@ -44,30 +44,30 @@
                     <option value="fire">Fire</option>
                     <option value="smoke">Smoke</option>
                     <option value="heat">Heat</option>
-                </select>
+                </select> <!-- Dropdown for selecting sensor type -->
             </div>
             <div class="form-group">
                 <label for="delayTime">Delay Time (seconds):</label>
-                <input type="number" id="delayTime" min="0" required>
+                <input type="number" id="delayTime" min="0" required> <!-- Input for delay time -->
             </div>
-            <button id="submitSensor">Submit Sensor Details</button>
+            <button id="submitSensor">Submit Sensor Details</button> <!-- Button to submit sensor details -->
         </div>
 
         <!-- Section to display the list of configured sensors -->
-        <div id="sensorList" class="hidden">
+        <div id="sensorList" class="hidden"> <!-- Hidden by default -->
             <h2>Configured Sensors</h2>
             <ul id="sensors"></ul> <!-- Unordered list to display configured sensors -->
         </div>
 
         <!-- Section for simulating alarms (initially hidden) -->
-        <div id="alarmSimulation" class="hidden">
+        <div id="alarmSimulation" class="hidden"> <!-- Hidden by default -->
             <h2>Alarm Simulation</h2>
-            <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button>
+            <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button> <!-- Button to simulate an alarm -->
             <div id="alarmInfo"></div> <!-- Div to display information about simulated alarms -->
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 The Dynasty Defense Alarm Systems</p>
+        <p>&copy; 2024 The Dynasty Defense Alarm Systems</p> <!-- Footer information -->
     </footer>
     <script src="script.js"></script> <!-- Links to an external JavaScript file for functionality -->
 </body>
