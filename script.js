@@ -5,6 +5,8 @@ let alarmsActive = true; // Track alarm status
 let adminLoggedIn = false; // Track admin login state
 const userPasswords = {}; // Object to hold user passwords
 
+const locations = ["Living Room", "Kitchen", "Bedroom", "Garage"]; // Define the locations
+
 // Load the admin password from localStorage when the page loads
 window.onload = function() {
     const storedAdminPassword = localStorage.getItem('adminPassword');
@@ -23,6 +25,16 @@ document.getElementById('adminLoginButton').addEventListener('click', function()
         alert("Admin access granted! You can now change user passwords and manage settings.");
     } else {
         alert("Incorrect password!");
+    }
+});
+
+// Access Sensor Menu from Admin Menu
+document.getElementById('accessSensorMenu').addEventListener('click', function() {
+    if (adminLoggedIn) { // Check if the admin is logged in
+        document.getElementById('adminMenu').classList.add('hidden'); // Hide admin menu
+        document.getElementById('sensorForm').classList.remove('hidden'); // Show sensor form
+    } else {
+        alert("Please log in as admin to access the sensor menu.");
     }
 });
 
@@ -79,13 +91,14 @@ function addSensor() {
     const number = document.getElementById('sensorNumber').value;
     const type = document.getElementById('sensorType').value;
     const delay = document.getElementById('delayTime').value;
+    const location = locations[number - 1]; // Get the location based on sensor number
 
     if (!number || !type || !delay) {
         alert("Please fill in all fields!");
         return;
     }
 
-    const sensor = { number, type, delay };
+    const sensor = { number, type, delay, location }; // Include location in the sensor object
     sensors.push(sensor);
     updateSensorList();
 }
@@ -97,7 +110,7 @@ function updateSensorList() {
 
     sensors.forEach(sensor => {
         const li = document.createElement('li');
-        li.textContent = `Sensor ${sensor.number}: ${sensor.type} (Delay: ${sensor.delay}s)`;
+        li.textContent = `Sensor ${sensor.number}: ${sensor.type} (Delay: ${sensor.delay}s) in the ${sensor.location}`; // Include location
         sensorList.appendChild(li);
     });
 
@@ -108,36 +121,6 @@ function updateSensorList() {
     }
 }
 
-// Toggle Alarms Functionality
-function toggleAlarms() {
-    if (!adminLoggedIn) {
-        alert("You must be logged in as admin to toggle alarms.");
-        return; // Exit the function if admin is not logged in
-    }
-    
-    alarmsActive = !alarmsActive;
-    document.getElementById('toggleAlarms').textContent = alarmsActive ? "Disable Alarms" : "Enable Alarms";
-}
-
-// Change User Password Logic
-document.getElementById('changeUserPassword').addEventListener('click', function() {
-    const selectedUser = document.getElementById('userSelect').value;
-    const newUserPassword = document.getElementById('userPassword').value;
-
-    if (selectedUser && newUserPassword) {
-        userPasswords[selectedUser] = newUserPassword;
-        alert(`Password for ${selectedUser} changed successfully!`);
-    } else {
-        alert("Please select a user and enter a new password.");
-    }
-});
-
-// Access Sensor Menu from Admin Menu
-document.getElementById('accessSensorMenu').addEventListener('click', function() {
-    document.getElementById('adminMenu').classList.add('hidden'); // Hide admin menu
-    document.getElementById('sensorForm').classList.remove('hidden'); // Show sensor form
-});
-
 // Simulate Alarm Functionality
 function simulateAlarm() {
     if (sensors.length === 0) {
@@ -147,5 +130,24 @@ function simulateAlarm() {
 
     const randomSensor = sensors[Math.floor(Math.random() * sensors.length)];
     const alarmInfo = document.getElementById('alarmInfo');
-    alarmInfo.textContent = `ALARM: ${randomSensor.type.toUpperCase()} detected by Sensor ${randomSensor.number}!`;
+    alarmInfo.textContent = `ALARM: ${randomSensor.type.toUpperCase()} detected by Sensor ${randomSensor.number} in the ${randomSensor.location}!`; // Include location
+    console.log(`Alarm information sent: ${randomSensor.type} alarm from Sensor ${randomSensor.number} in ${randomSensor.location}`); // Log alarm info to console
 }
+
+// Function to deactivate a specific sensor alarm
+function deactivateSensorAlarm(sensorNumber) {
+    const sensorIndex = sensors.findIndex(sensor => sensor.number === sensorNumber);
+    if (sensorIndex > -1) {
+        alert(`Alarm for Sensor ${sensorNumber} in the ${sensors[sensorIndex].location} has been deactivated.`);
+        sensors.splice(sensorIndex, 1); // Remove the sensor from the array (or mark it as inactive)
+        updateSensorList(); // Update the sensor list display
+    } else {
+        alert("No such sensor found!");
+    }
+}
+
+// Add a button to deactivate alarms
+document.getElementById('deactivateAlarmButton').addEventListener('click', function() {
+    const sensorNumber = prompt("Enter the Sensor Number to deactivate:");
+    deactivateSensorAlarm(sensorNumber);
+});
