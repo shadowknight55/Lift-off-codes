@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for mobile devices -->
-    <title>The Dynasty Defense Alarm Systems</title> <!-- Title of the webpage -->
-    <link href="style.css" rel="stylesheet" type="text/css" /> <!-- Link to the external CSS stylesheet -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dynasty Defense Alarm Systems</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
-        <h1>The Dynasty Defense Alarm Systems</h1> <!-- Main title of the page -->
+        <h1>The Dynasty Defense Alarm Systems</h1>
     </header>
     <main>
         <!-- Password Entry Section -->
         <div id="passwordForm">
-            <h2>Set Your Password</h2> <!-- Subheading for the password section -->
+            <h2>Set Your Password</h2>
             <div class="form-group">
-                <label for="password">Enter Password (16 characters, 1 capital letter, 1 special character):</label> <!-- Label for password input -->
-                <input type="password" id="password" required> <!-- Password input field, required -->
+                <label for="password">Enter Password (16 characters, 1 capital letter, 1 special character):</label>
+                <input type="password" id="password" required>
             </div>
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label> <!-- Label for password confirmation input -->
-                <input type="password" id="confirmPassword" required> <!-- Confirmation input field, required -->
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" required>
             </div>
-            <button id="submitPassword">Submit</button> <!-- Button to submit the password -->
-            <div id="message"></div> <!-- Div to display messages to the user -->
+            <button id="submitPassword">Submit</button>
+            <div id="message"></div>
         </div>
 
         <!-- Sensor Details Section -->
-        <div id="sensorForm" class="hidden"> <!-- Hidden by default; shows when needed -->
-            <h2>Sensor Details</h2> <!-- Subheading for sensor details section -->
+        <div id="sensorForm" class="hidden">
+            <h2>Sensor Details</h2>
             <div class="form-group">
-                <label for="sensorNumber">Sensor Number:</label> <!-- Label for selecting a sensor number -->
-                <select id="sensorNumber"> <!-- Dropdown to select sensor number -->
+                <label for="sensorNumber">Sensor Number:</label>
+                <select id="sensorNumber">
                     <option value="1">Sensor 1</option>
                     <option value="2">Sensor 2</option>
                     <option value="3">Sensor 3</option>
@@ -39,40 +39,68 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="sensorType">Sensor Type:</label> <!-- Label for selecting a sensor type -->
-                <select id="sensorType"> <!-- Dropdown to select sensor type -->
+                <label for="sensorType">Sensor Type:</label>
+                <select id="sensorType">
                     <option value="fire">Fire</option>
                     <option value="smoke">Smoke</option>
                     <option value="heat">Heat</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="delayTime">Delay Time (seconds):</label> <!-- Label for entering delay time -->
-                <input type="number" id="delayTime" min="0" required> <!-- Input for delay time, must be a non-negative number -->
+                <label for="delayTime">Delay Time (seconds):</label>
+                <input type="number" id="delayTime" min="0" required>
             </div>
-            <button id="submitSensor">Submit Sensor Details</button> <!-- Button to submit sensor details -->
+            <button id="submitSensor">Submit Sensor Details</button>
         </div>
 
         <!-- Section to display the list of configured sensors -->
-        <div id="sensorList" class="hidden"> <!-- Hidden by default; shows when there are sensors configured -->
-            <h2>Configured Sensors</h2> <!-- Subheading for configured sensors section -->
-            <ul id="sensors"></ul> <!-- Unordered list to display sensor configurations -->
+        <div id="sensorList" class="hidden">
+            <h2>Configured Sensors</h2>
+            <ul id="sensors"></ul>
         </div>
 
         <!-- Section for simulating alarms -->
-        <div id="alarmSimulation" class="hidden"> <!-- Hidden by default; shows when an alarm simulation is needed -->
-            <h2>Alarm Simulation</h2> <!-- Subheading for alarm simulation section -->
-            <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button> <!-- Button to trigger alarm simulation, initially hidden -->
-            <div id="alarmInfo"></div> <!-- Div to display information about the alarm -->
-            <div id="sensorStatus"></div> <!-- New section for displaying sensor status -->
+        <div id="alarmSimulation" class="hidden">
+            <h2>Alarm Simulation</h2>
+            <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button>
+            <div id="alarmInfo"></div>
+            <div id="sensorStatus"></div>
+            <button id="toggleAlarms" class="hidden" onclick="toggleAlarms()">Disable Alarms</button>
         </div>
+
+        <!-- Admin Menu Section -->
+        <div id="adminMenu" class="hidden">
+            <h2>Admin Menu</h2>
+            <div class="form-group">
+                <label for="adminPassword">New Admin Password:</label>
+                <input type="password" id="adminPassword" required>
+            </div>
+            <button id="changeAdminPassword">Change Admin Password</button>
+            <div class="form-group">
+                <label for="userSelect">Select User:</label>
+                <select id="userSelect">
+                    <option value="">-- Select User --</option>
+                    <option value="user1">User 1</option>
+                    <option value="user2">User 2</option>
+                    <option value="user3">User 3</option>
+                    <option value="user4">User 4</option>
+                    <option value="user5">User 5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Change User Password:</label>
+                <input type="password" id="userPassword" required>
+            </div>
+            <button id="changeUserPassword">Change User Password</button>
+            <button id="accessSensorMenu">Access Sensor Menu</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 The Dynasty Defense Alarm Systems</p>
+            <button id="adminLoginButton">Admin Login</button>
+        </footer>
     </main>
     
-    <!-- Flashlight Effect -->
-    <div id="flashlight"></div> <!-- Div for a flashlight effect, likely styled in CSS -->
-    <footer>
-        <p>&copy; 2024 The Dynasty Defense Alarm Systems</p> <!-- Footer with copyright notice -->
-    </footer>
-    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>

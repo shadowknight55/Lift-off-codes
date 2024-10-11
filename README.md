@@ -20,7 +20,7 @@ To get started with the application, follow these steps:
 - A code editor (like VSCode, Atom, etc.) to modify the files if necessary.
 
 ### Installation
-
+the password is Launchpad101@344
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yourusername/dynasty-defense-alarm-systems.git
