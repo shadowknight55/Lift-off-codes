@@ -17,9 +17,15 @@ window.onload = function() {
 
 // Admin Login Button Functionality
 document.getElementById('adminLoginButton').addEventListener('click', function() {
-    const enteredPassword = prompt("Enter Admin Password:");
+    showPopup('adminLoginPopup');
+});
+
+// Admin Login Popup Logic
+document.getElementById('adminLoginPopupButton').addEventListener('click', function() {
+    const enteredPassword = document.getElementById('adminPasswordInput').value;
     if (enteredPassword === adminPassword) {
         adminLoggedIn = true; // Set adminLoggedIn to true
+        closePopup('adminLoginPopup');
         document.getElementById('passwordForm').classList.add('hidden'); // Hide password form
         document.getElementById('adminMenu').classList.remove('hidden'); // Show admin menu
         alert("Admin access granted! You can now change user passwords and manage settings.");
@@ -136,10 +142,16 @@ function simulateAlarm() {
 
 // Function to deactivate a specific sensor alarm
 function deactivateSensorAlarm(sensorNumber) {
-    const sensorIndex = sensors.findIndex(sensor => sensor.number === sensorNumber);
+    const sensorIndex = sensors.findIndex(sensor => sensor.number === sensorNumber.toString());
     if (sensorIndex > -1) {
         alert(`Alarm for Sensor ${sensorNumber} in the ${sensors[sensorIndex].location} has been deactivated.`);
-        sensors.splice(sensorIndex, 1); // Remove the sensor from the array (or mark it as inactive)
+        
+        // Clear the alarm message
+        const alarmInfo = document.getElementById('alarmInfo');
+        alarmInfo.textContent = ''; // Clear alarm info
+        alarmInfo.classList.add('hidden'); // Optionally hide the alarm info
+        
+        sensors.splice(sensorIndex, 1); // Remove the sensor from the array
         updateSensorList(); // Update the sensor list display
     } else {
         alert("No such sensor found!");
@@ -148,6 +160,22 @@ function deactivateSensorAlarm(sensorNumber) {
 
 // Add a button to deactivate alarms
 document.getElementById('deactivateAlarmButton').addEventListener('click', function() {
-    const sensorNumber = prompt("Enter the Sensor Number to deactivate:");
-    deactivateSensorAlarm(sensorNumber);
+    showPopup('deactivateAlarmPopup');
 });
+
+// Deactivate Alarm Popup Logic
+document.getElementById('deactivateAlarmButtonPopup').addEventListener('click', function() {
+    const sensorNumberInput = parseInt(document.getElementById('sensorNumberInput').value, 10);
+    deactivateSensorAlarm(sensorNumberInput);
+    closePopup('deactivateAlarmPopup');
+});
+
+// Function to show a popup
+function showPopup(popupId) {
+    document.getElementById(popupId).style.display = 'block';
+}
+
+// Function to close a popup
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}

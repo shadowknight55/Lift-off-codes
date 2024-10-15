@@ -11,7 +11,6 @@
         <h1>The Dynasty Defense Alarm Systems</h1>
     </header>
     <main>
-        <!-- Password Entry Section -->
         <div id="passwordForm">
             <h2>Set Your Password</h2>
             <div class="form-group">
@@ -26,7 +25,6 @@
             <div id="message"></div>
         </div>
 
-        <!-- Sensor Details Section -->
         <div id="sensorForm" class="hidden">
             <h2>Sensor Details</h2>
             <div class="form-group">
@@ -53,23 +51,19 @@
             <button id="submitSensor">Submit Sensor Details</button>
         </div>
 
-        <!-- Section to display the list of configured sensors -->
         <div id="sensorList" class="hidden">
             <h2>Configured Sensors</h2>
             <ul id="sensors"></ul>
         </div>
 
-        <!-- Section for simulating alarms -->
         <div id="alarmSimulation" class="hidden">
             <h2>Alarm Simulation</h2>
             <button id="simulateAlarmButton" class="hidden" onclick="simulateAlarm()">Simulate Alarm</button>
             <div id="alarmInfo"></div>
             <div id="sensorStatus"></div>
-            <button id="toggleAlarms" class="hidden" onclick="toggleAlarms()">Disable Alarms</button>
             <button id="deactivateAlarmButton">Deactivate Alarm</button>
         </div>
 
-        <!-- Admin Menu Section -->
         <div id="adminMenu" class="hidden">
             <h2>Admin Menu</h2>
             <div class="form-group">
@@ -101,7 +95,27 @@
             <button id="adminLoginButton">Admin Login</button>
         </footer>
     </main>
-    
+
+    <!-- Admin Login Popup -->
+    <div id="adminLoginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('adminLoginPopup')">&times;</span>
+            <h2>Admin Login</h2>
+            <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password" />
+            <button id="adminLoginPopupButton">Login</button>
+        </div>
+    </div>
+
+    <!-- Deactivate Alarm Popup -->
+    <div id="deactivateAlarmPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('deactivateAlarmPopup')">&times;</span>
+            <h2>Deactivate Alarm</h2>
+            <input type="number" id="sensorNumberInput" placeholder="Enter Sensor Number" />
+            <button id="deactivateAlarmButtonPopup">Deactivate</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

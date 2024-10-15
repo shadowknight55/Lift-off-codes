@@ -7,16 +7,6 @@ body {
     color: #e0e0e0; /* Light text color */
 }
 
-/* Add this to your existing CSS */
-#adminSection {
-    margin-top: 20px;
-}
-
-#userList {
-    list-style: none;
-    padding: 0;
-}
-
 /* Header and Footer */
 header, footer {
     background-color: #333; /* Dark background for header and footer */
@@ -94,7 +84,6 @@ button:hover {
     z-index: 10; /* Ensure it appears above other elements */
 }
 
-
 /* Alarm Info Styles */
 #alarmInfo {
     margin-top: 10px;
@@ -131,6 +120,7 @@ footer {
     border-bottom: 1px solid #555; /* Darker line */
 }
 
+/* Flashlight Styles */
 #flashlight {
     position: fixed; /* Keep it fixed */
     width: 200px; 
@@ -148,4 +138,71 @@ footer {
     body {
         font-size: 14px; /* Adjust font size for smaller screens */
     }
+}
+/* Pop-Up Styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(16, 16, 16, 0.8); /* Dark background with some opacity */
+}
+
+/* Pop-Up Content */
+.popup-content {
+    background-color: #222; /* Darker background to match the site */
+    margin: 10% auto; /* Centered with some margin from the top */
+    padding: 20px; /* Padding around content */
+    border: 2px solid #ff0000; /* Red border */
+    border-radius: 10px; /* Rounded corners */
+    width: 90%; /* Set width to 90% for responsiveness */
+    max-width: 400px; /* Adjust max width for compactness */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow for effect */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Close Button */
+.close {
+    color: #ff0000; /* Red color */
+    float: right; /* Float to the right */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* Change color on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Input Fields in Pop-Ups */
+.popup-content input[type="password"],
+.popup-content input[type="number"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px; /* Padding */
+    margin: 10px 0; /* Margin for spacing */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+    color: #ffffff; /* White text */
+}
+
+/* Button Styles in Pop-Ups */
+.popup-content button {
+    background-color: #ff0000; /* Red background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px; /* Padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width for buttons */
+}
+
+.popup-content button:hover {
+    background-color: #cc0000; /* Darker red on hover */
 }
