@@ -27,7 +27,6 @@ main {
 /* Form Styles */
 .form-group {
     margin-bottom: 15px;
-    position: relative; /* For camera overlay */
 }
 
 /* Input Fields */
@@ -65,9 +64,23 @@ button:hover {
     display: none; /* Hide elements with this class */
 }
 
-/* Sensor Details Section Styles */
-#sensorForm {
-    margin-top: 20px;
+/* Sensor Screen Styles */
+#sensorScreen {
+    display: flex;
+    width: 100%; /* Full width */
+}
+
+/* Floor Buttons and Active Sensors Section */
+#floorButtons {
+    width: 20%; /* Set width for the floor buttons */
+    padding: 10px; /* Padding */
+}
+
+#sensorStatusList {
+    width: 75%; /* Set width for the active sensors */
+    padding: 10px; /* Padding */
+    border-left: 2px solid #ff0000; /* Red left border */
+    margin-left: 20px; /* Margin for spacing */
 }
 
 /* Alarm Simulation Section Styles */
@@ -91,54 +104,6 @@ button:hover {
     color: red; /* Red color for alarm messages */
 }
 
-/* Camera Overlay Styles */
-.camera-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    border: 2px solid #ff0000; /* Red border */
-    box-shadow: 0 0 15px #ff0000; /* Red glow */
-    pointer-events: none; /* Make overlay non-interactive */
-}
-
-/* Footer Styles */
-footer {
-    margin-top: 20px;
-}
-
-/* List Styles */
-#sensors {
-    list-style: none; /* Remove bullet points */
-    padding: 0;
-}
-
-#sensors li {
-    padding: 5px;
-    border-bottom: 1px solid #555; /* Darker line */
-}
-
-/* Flashlight Styles */
-#flashlight {
-    position: fixed; /* Keep it fixed */
-    width: 200px; 
-    height: 200px; 
-    border-radius: 50%; 
-    background: rgba(31, 31, 31, 0.5); /* More transparent */
-    pointer-events: none; 
-    transition: background 0.3s; 
-    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8); /* Dark background for flashlight effect */
-    z-index: 10; /* Ensure it appears above other content */
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-}
 /* Pop-Up Styles */
 .popup {
     display: none; /* Hidden by default */
@@ -179,30 +144,25 @@ footer {
     cursor: pointer; /* Pointer cursor */
 }
 
-/* Input Fields in Pop-Ups */
-.popup-content input[type="password"],
-.popup-content input[type="number"] {
-    width: calc(100% - 20px); /* Full width minus padding */
-    padding: 10px; /* Padding */
-    margin: 10px 0; /* Margin for spacing */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
-    color: #ffffff; /* White text */
+/* List Styles */
+#activeSensors {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
 }
 
-/* Button Styles in Pop-Ups */
-.popup-content button {
-    background-color: #ff0000; /* Red background */
-    color: white; /* White text */
-    border: none;
-    padding: 10px; /* Padding */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Full width for buttons */
+#activeSensors li {
+    padding: 5px;
+    border-bottom: 1px solid #555; /* Darker line */
 }
 
-.popup-content button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+/* Responsive Styles */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    #floorButtons, #sensorStatusList {
+        width: 100%; /* Full width for smaller screens */
+        margin: 0; /* Remove margin */
+    }
 }
