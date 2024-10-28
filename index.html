@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dynasty Defense Alarm Systems</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings -->
+    <title>The Dynasty Defense Alarm Systems</title> <!-- Title of the webpage -->
+    <link href="style.css" rel="stylesheet" type="text/css" /> <!-- Link to external CSS stylesheet -->
 </head>
 <body>
     <header>
-        <h1>The Dynasty Defense Alarm Systems</h1>
+        <h1>The Dynasty Defense Alarm Systems</h1> <!-- Main title displayed at the top -->
     </header>
     
-    <button id="backToLoginButton">Back to Login</button> <!-- Back to Login button at the top -->
+    <button id="backToLoginButton">Back to Login</button> <!-- Button to return to the login page -->
     
     <main>
+        <!-- Password Setup Form -->
         <div id="passwordForm">
-            <h2>Set Your Password</h2>
+            <h2>Set Your Password</h2> <!-- Section heading -->
             <div class="form-group">
                 <label for="password">Enter Password (16 characters, 1 capital letter, 1 special character):</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" required> <!-- Password input field -->
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" required>
+                <input type="password" id="confirmPassword" required> <!-- Confirmation password field -->
             </div>
-            <button id="submitPassword">Submit</button>
-            <div id="message"></div>
+            <button id="submitPassword">Submit</button> <!-- Button to submit the password -->
+            <div id="message"></div> <!-- Placeholder for displaying messages (success or error) -->
         </div>
 
-        <div id="sensorForm" class="hidden">
+        <!-- Sensor Configuration Form -->
+        <div id="sensorForm" class="hidden"> <!-- Initially hidden, displayed after login -->
             <h2>Sensor Details</h2>
             <div class="form-group">
                 <label for="sensorNumber">Sensor Number:</label>
-                <select id="sensorNumber">
+                <select id="sensorNumber"> <!-- Dropdown to select sensor number -->
                     <option value="1">Sensor 1</option>
                     <option value="2">Sensor 2</option>
                     <option value="3">Sensor 3</option>
@@ -41,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="sensorType">Sensor Type:</label>
-                <select id="sensorType">
+                <select id="sensorType"> <!-- Dropdown to select sensor type -->
                     <option value="fire">Fire</option>
                     <option value="smoke">Smoke</option>
                     <option value="heat">Heat</option>
@@ -49,38 +51,41 @@
             </div>
             <div class="form-group">
                 <label for="delayTime">Delay Time (seconds):</label>
-                <input type="number" id="delayTime" min="0" required>
+                <input type="number" id="delayTime" min="0" required> <!-- Input for delay time -->
             </div>
-            <button id="submitSensor">Submit Sensor Details</button>
+            <button id="submitSensor">Submit Sensor Details</button> <!-- Button to submit sensor details -->
             <div id="randomSensors">
                 <h3>Active Sensors</h3>
-                <ul id="randomSensorList"></ul>
+                <ul id="randomSensorList"></ul> <!-- List to display active sensors -->
             </div>
         </div>
 
-        <div id="sensorList" class="hidden">
+        <!-- List of Configured Sensors -->
+        <div id="sensorList" class="hidden"> <!-- Initially hidden, displayed after sensors are configured -->
             <h2>Configured Sensors</h2>
-            <ul id="sensors"></ul>
+            <ul id="sensors"></ul> <!-- List to display configured sensors -->
         </div>
 
-        <div id="alarmSimulation" class="hidden">
+        <!-- Alarm Simulation Section -->
+        <div id="alarmSimulation" class="hidden"> <!-- Initially hidden, displayed during alarm simulation -->
             <h2>Alarm Simulation</h2>
-            <div id="alarmInfo"></div>
-            <div id="sensorStatus"></div>
-            <button id="simulateAlarmButton">Simulate Alarm</button>
-            <button id="deactivateAlarmButton" class="hidden">Deactivate Alarm</button>
+            <div id="alarmInfo"></div> <!-- Placeholder for alarm messages -->
+            <div id="sensorStatus"></div> <!-- Placeholder for sensor status -->
+            <button id="simulateAlarmButton">Simulate Alarm</button> <!-- Button to simulate an alarm -->
+            <button id="deactivateAlarmButton" class="hidden">Deactivate Alarm</button> <!-- Button to deactivate the alarm, initially hidden -->
         </div>
 
-        <div id="adminMenu" class="hidden">
+        <!-- Admin Menu Section -->
+        <div id="adminMenu" class="hidden"> <!-- Initially hidden, displayed after admin login -->
             <h2>Admin Menu</h2>
             <div class="form-group">
                 <label for="adminPassword">New Admin Password:</label>
-                <input type="password" id="adminPassword" required>
+                <input type="password" id="adminPassword" required> <!-- Input for new admin password -->
             </div>
-            <button id="changeAdminPassword">Change Admin Password</button>
+            <button id="changeAdminPassword">Change Admin Password</button> <!-- Button to change the admin password -->
             <div class="form-group">
                 <label for="userSelect">Select User:</label>
-                <select id="userSelect">
+                <select id="userSelect"> <!-- Dropdown to select user for password change -->
                     <option value="">-- Select User --</option>
                     <option value="user1">User 1</option>
                     <option value="user2">User 2</option>
@@ -91,38 +96,40 @@
             </div>
             <div class="form-group">
                 <label for="userPassword">Change User Password:</label>
-                <input type="password" id="userPassword" required>
+                <input type="password" id="userPassword" required> <!-- Input for changing user password -->
             </div>
-            <button id="changeUserPassword">Change User Password</button>
-            <button id="accessSensorMenu">Access Sensor Menu</button>
+            <button id="changeUserPassword">Change User Password</button> <!-- Button to change the selected user's password -->
+            <button id="accessSensorMenu">Access Sensor Menu</button> <!-- Button to access the sensor menu -->
         </div>
 
         <footer>
-            <p>&copy; 2024 The Dynasty Defense Alarm Systems</p>
-            <button id="adminLoginButton">Admin Login</button>
+            <p>&copy; 2024 The Dynasty Defense Alarm Systems</p> <!-- Footer with copyright -->
+            <button id="adminLoginButton">Admin Login</button> <!-- Button to open the admin login popup -->
         </footer>
     </main>
 
-    <div id="adminLoginPopup" class="popup">
+    <!-- Admin Login Popup -->
+    <div id="adminLoginPopup" class="popup"> <!-- Popup for admin login -->
         <div class="popup-content">
-            <span class="close" onclick="closePopup('adminLoginPopup')">&times;</span>
+            <span class="close" onclick="closePopup('adminLoginPopup')">&times;</span> <!-- Close button for the popup -->
             <h2>Admin Login</h2>
-            <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password" />
-            <button id="adminLoginPopupButton">Login</button>
+            <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password" /> <!-- Input for admin password -->
+            <button id="adminLoginPopupButton">Login</button> <!-- Button to submit admin login -->
         </div>
     </div>
 
-    <div id="deactivateAlarmPopup" class="popup">
+    <!-- Deactivate Alarm Popup -->
+    <div id="deactivateAlarmPopup" class="popup"> <!-- Popup for deactivating the alarm -->
         <div class="popup-content">
-            <span class="close" onclick="closePopup('deactivateAlarmPopup')">&times;</span>
+            <span class="close" onclick="closePopup('deactivateAlarmPopup')">&times;</span> <!-- Close button for the popup -->
             <h2>Deactivate Alarm</h2>
-            <input type="number" id="sensorNumberInput" placeholder="Enter Sensor Number" />
-            <button id="deactivateAlarmButtonPopup">Deactivate</button>
+            <input type="number" id="sensorNumberInput" placeholder="Enter Sensor Number" /> <!-- Input for sensor number to deactivate -->
+            <button id="deactivateAlarmButtonPopup">Deactivate</button> <!-- Button to deactivate the alarm -->
         </div>
     </div>
 
-    <button id="backToAdminButton" class="hidden">Back to Admin Menu</button>
+    <button id="backToAdminButton" class="hidden">Back to Admin Menu</button> <!-- Button to go back to the admin menu, initially hidden -->
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
