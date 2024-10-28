@@ -3,17 +3,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #101010; /* Dark background */
-    color: #e0e0e0; /* Light text color */
+    background-color: #2a2a2a; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text color */
 }
 
 /* Header and Footer */
 header, footer {
-    background-color: #333; /* Dark background for header and footer */
+    background-color: #1e1e1e; /* Dark grey background for header and footer */
     color: #ffffff; /* White text color */
     text-align: center; /* Centered text */
-    padding: 10px; /* Padding around text */
-    border: 2px solid #ff0000; /* Red border */
+    padding: 15px; /* Increased padding for better spacing */
+    border-bottom: 3px solid #4a90e2; /* Light blue border */
 }
 
 /* Main Section */
@@ -26,36 +26,39 @@ main {
 
 /* Form Styles */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased margin for better separation */
 }
 
 /* Input Fields */
 input[type="password"], input[type="number"], select {
     width: 100%; /* Full width for input fields */
-    padding: 10px;
-    border: 1px solid #ccc; /* Light border */
+    padding: 12px; /* Slightly larger padding */
+    border: 1px solid #444; /* Darker grey border */
     border-radius: 5px; /* Rounded corners */
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
     color: #ffffff; /* White text */
 }
+
 /* Dropdown Menu Styles */
 select {
-    color: black; /* Change dropdown text color to black */
+    background-color: #444; /* Dark grey background for dropdowns */
+    color: #ffffff; /* White text for dropdowns */
 }
 
 /* Button Styles */
 button {
-    background-color: #ff0000; /* Red background */
+    background-color: #4a90e2; /* Dark blue background */
     color: white; /* White text */
     border: none;
-    padding: 10px 15px;
+    padding: 12px 18px; /* Increased padding */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 16px; /* Increased font size */
 }
 
 button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #357ab8; /* Darker blue on hover */
 }
 
 /* Hidden Elements */
@@ -78,8 +81,22 @@ button:hover {
 #sensorStatusList {
     width: 75%; /* Set width for the active sensors */
     padding: 10px; /* Padding */
-    border-left: 2px solid #ff0000; /* Red left border */
+    border-left: 3px solid #4a90e2; /* Light blue left border */
     margin-left: 20px; /* Margin for spacing */
+}
+
+/* Active Sensors List Styles */
+#activeSensors {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+
+#activeSensors li {
+    padding: 15px; /* Increased padding for better spacing */
+    margin-bottom: 10px; /* Space between items */
+    border: 1px solid #555; /* Border for distinction */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.05); /* Light background for better visibility */
 }
 
 /* Alarm Simulation Section Styles */
@@ -88,10 +105,10 @@ button:hover {
     top: 100px; /* Adjust top position */
     right: 20px; /* Align to the right */
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #4a90e2; /* Light blue border */
     border-radius: 5px;
-    background-color: rgba(255, 0, 0, 0.2); /* Light red for alarm */
-    width: 250px; /* Set a fixed width */
+    background-color: rgba(74, 144, 226, 0.2); /* Light blue for alarm */
+    width: 300px; /* Set a fixed width */
     box-sizing: border-box; /* Include padding in width */
     z-index: 10; /* Ensure it appears above other elements */
 }
@@ -100,7 +117,7 @@ button:hover {
 #alarmInfo {
     margin-top: 10px;
     font-weight: bold;
-    color: red; /* Red color for alarm messages */
+    color: #ff4444; /* Red color for alarm messages */
 }
 
 /* Pop-Up Styles */
@@ -112,27 +129,26 @@ button:hover {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    background-color: rgba(16, 16, 16, 0.8); /* Dark background with some opacity */
+    background-color: rgba(42, 42, 42, 0.9); /* Darker grey background with more opacity */
 }
 
 /* Pop-Up Content */
 .popup-content {
-    background-color: #222; /* Darker background to match the site */
+    background-color: #333; /* Darker grey background to match the site */
     margin: 10% auto; /* Centered with some margin from the top */
-    padding: 20px; /* Padding around content */
-    border: 2px solid #ff0000; /* Red border */
+    padding: 25px; /* Increased padding around content */
+    border: 3px solid #4a90e2; /* Light blue border */
     border-radius: 10px; /* Rounded corners */
     width: 90%; /* Set width to 90% for responsiveness */
-    max-width: 400px; /* Adjust max width for compactness */
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow for effect */
-    overflow: hidden; /* Prevent content overflow */
+    max-width: 450px; /* Adjust max width for compactness */
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5); /* Light blue glow for effect */
 }
 
 /* Close Button */
 .close {
-    color: #ff0000; /* Red color */
+    color: #4a90e2; /* Light blue color */
     float: right; /* Float to the right */
-    font-size: 20px; /* Font size */
+    font-size: 22px; /* Increased font size */
     font-weight: bold; /* Bold text */
 }
 
@@ -143,25 +159,35 @@ button:hover {
     cursor: pointer; /* Pointer cursor */
 }
 
-/* List Styles */
-#activeSensors {
-    list-style: none; /* Remove bullet points */
-    padding: 0;
-}
-
-#activeSensors li {
-    padding: 5px;
-    border-bottom: 1px solid #555; /* Darker line */
-}
-
 /* Responsive Styles */
 @media (max-width: 600px) {
     body {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 16px; /* Adjust font size for smaller screens */
     }
 
     #floorButtons, #sensorStatusList {
         width: 100%; /* Full width for smaller screens */
         margin: 0; /* Remove margin */
     }
+}
+
+/* Back to Login Button Styles */
+#backToLoginButton {
+    display: inline-block;
+    margin: 15px;
+    padding: 12px 20px; /* Increased padding */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+}
+
+#backToLoginButton.hidden {
+    display: none; /* Keep hidden class for JS functionality */
+}
+
+#backToLoginButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
